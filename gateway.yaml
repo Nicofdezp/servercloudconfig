@@ -1,0 +1,23 @@
+server:
+  port: 8085 #the default port used for zuul service
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhot:8761/eureka/
+  instance:
+    preferIpAddress: true
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+  
+zuul:
+  ignoredServices: '*'
+  routes:
+    activity:
+      path: /actividad/**
+      serviceId: actividad
+    login:
+      path: /usuario/**
+      serviceId: usuario
