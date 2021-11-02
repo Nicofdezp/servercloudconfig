@@ -18,6 +18,9 @@ zuul:
     activity:
       path: /actividad/**
       serviceId: actividad
-    login:
+    user:
       path: /usuario/**
       serviceId: usuario
+    reserva:
+      path: /reserva/**
+      serviceId: reserva
